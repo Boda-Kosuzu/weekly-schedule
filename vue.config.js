@@ -8,4 +8,10 @@ module.exports = {
       },
     },
   },
+  pwa: {
+    workboxPluginMode: "GenerateSW",
+    workboxOptions: {
+      exclude: /./,
+    },
+  },
 };

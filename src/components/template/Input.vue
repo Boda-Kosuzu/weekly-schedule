@@ -37,7 +37,6 @@ export default defineComponent({
 
     const output = () => {
       const target = document.getElementById("preview");
-      console.log(target);
       if (!target) return;
 
       html2canvas(target as HTMLElement).then(function (canvas) {
