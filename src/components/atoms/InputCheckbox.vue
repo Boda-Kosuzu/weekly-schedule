@@ -42,7 +42,8 @@ export default defineComponent({
     const state = reactive({
       id:
         new Date().getTime().toString(16) +
-        Math.floor(Math.random()).toString(16),
+        Math.floor(Math.random() * new Date().getTime()).toString(16) +
+        new Date().getTime().toString(16),
     });
 
     return {
