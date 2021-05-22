@@ -1,4 +1,6 @@
 module.exports = {
+  publicPath: "./",
+  outputDir: "docs/",
   css: {
     loaderOptions: {
       scss: {
