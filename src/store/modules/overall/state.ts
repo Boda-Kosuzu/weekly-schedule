@@ -2,7 +2,7 @@ import { State } from "@/classes/overall";
 
 export const state: State = {
   desigin: "box",
-  width: 1370,
+  width: 1200,
   isStartMonday: false,
   background: {
     color: "#ffffff",
