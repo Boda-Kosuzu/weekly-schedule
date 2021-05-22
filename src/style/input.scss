@@ -1,0 +1,42 @@
+.weekly-schedule-checkbox {
+  display: none;
+  &-label {
+    width: 225px;
+    display: flex;
+    user-select: none;
+    font-size: 1.2rem;
+    &:hover {
+      opacity: 0.5;
+    }
+    & > .-unchecked {
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
+      background: $color-right-gray;
+      border-radius: 5px;
+      border: 1px solid $color-gray;
+      box-sizing: border-box;
+    }
+    & > .-checked {
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
+      position: relative;
+      background: $color-blue;
+      border-radius: 5px;
+      border: 1px solid $color-gray;
+      box-sizing: border-box;
+      &::before {
+        content: "";
+        width: 15px;
+        height: 7px;
+        position: absolute;
+        top: 4px;
+        left: 3px;
+        border-left: 3px solid $color-white;
+        border-bottom: 3px solid $color-white;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

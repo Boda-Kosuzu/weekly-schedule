@@ -1,0 +1,61 @@
+.weekly-schedule-h1 {
+  display: flex;
+  user-select: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 1px solid $color-gray;
+  margin-bottom: 20px;
+  &::before {
+    content: "▼";
+    display: block;
+    margin-right: 5px;
+    transition: transform .5s;
+  }
+  &.-hide::before {
+    transform: rotate(-90deg);
+  }
+}
+.weekly-schedule-h2 {
+  display: flex;
+  user-select: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid $color-gray;
+  margin-bottom: 20px;
+  &.-open {
+    cursor: pointer;
+  }
+  &.-open::before {
+    content: "▼";
+    display: block;
+    margin-right: 5px;
+    transition: transform .5s;
+  }
+  &.-hide::before {
+    transform: rotate(-90deg);
+  }
+}
+.weekly-schedule-h3 {
+  display: flex;
+  user-select: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  &.-open {
+    cursor: pointer;
+  }
+  &.-open::before {
+    content: "▼";
+    display: block;
+    margin-right: 5px;
+    transition: transform .5s;
+  }
+  &.-hide::before {
+    content: "▼";
+    display: block;
+    margin-right: 5px;
+    transition: transform .5s;
+    transform: rotate(-90deg);
+  }
+}

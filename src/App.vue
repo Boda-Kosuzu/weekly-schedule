@@ -1,27 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="weekly-schedule">
+    <input-area class="input-area" />
+    <preview-area class="preview-area" />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import "resetcss";
+import InputArea from "./components/template/Input.vue";
+import PreviewArea from "./components/template/Preview.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    InputArea,
+    PreviewArea,
   },
 });
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.weekly-schedule {
+  width: 100vw;
+  height: 100vh;
+  background: $color-white;
+  display: flex;
+}
+.input-area {
+  width: 30%;
+  height: 100%;
+  border-right: 2px solid $color-gray;
+  box-sizing: border-box;
+}
+.preview-area {
+  width: 70%;
+  height: 100%;
 }
 </style>

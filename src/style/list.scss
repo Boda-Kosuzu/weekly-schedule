@@ -1,0 +1,21 @@
+.input-list {
+  padding: 0 10px;
+  margin-bottom: 10px;
+  & * {
+    font-size: 1.2rem;
+  }
+  & > li + li {
+    margin-top: 10px;
+  }
+}
+.accordion-item {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s;
+  }
+  &-enter-from,
+  &-leave-to {
+    max-height: 0 !important;
+    margin: 0 !important;
+  }
+}
