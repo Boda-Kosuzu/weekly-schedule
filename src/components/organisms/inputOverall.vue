@@ -55,7 +55,6 @@ export default defineComponent({
     const desiginsList = ref({
       box: "ボックス",
       bubble: "バブル",
-      hex: "ヘックス",
       list_1: "リスト１",
       list_2: "リスト２",
     });

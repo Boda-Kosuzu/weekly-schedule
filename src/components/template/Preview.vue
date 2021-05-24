@@ -1,7 +1,8 @@
 <template>
   <div class="preveiw">
     <div id="preview" class="preveiw-overall" :style="style">
-      <box-item
+      <component
+        :is="displayComponent"
         v-for="(item, index) in schedules"
         :key="index"
         :index="index"
@@ -14,17 +15,35 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import BoxItem from "@/components/organisms/previewBoxSchedule.vue";
+import previewSchedule from "@/components/organisms/previewSchedule.vue";
+import previewSimpleListSchedule from "@/components/organisms/previewSimpleListSchedule.vue";
+import previewListSchedule from "@/components/organisms/previewListSchedule.vue";
+
+interface ComponentsList {
+  [key: string]: any;
+}
 
 export default defineComponent({
   name: "Preview",
   components: {
-    BoxItem,
+    previewSchedule,
+    previewSimpleListSchedule,
+    previewListSchedule,
   },
   setup() {
+    const componentsList: ComponentsList = {
+      box: previewSchedule,
+      bubble: previewSchedule,
+      list_1: previewSimpleListSchedule,
+      list_2: previewListSchedule,
+    };
     const store = useStore();
 
     const schedules = computed(() => store.state.Schedule.schedules);
+
+    const displayComponent = computed(() => {
+      return componentsList[store.state.Overall.desigin];
+    });
 
     const style = computed(() => {
       const overall = store.state.Overall;
@@ -43,6 +62,7 @@ export default defineComponent({
 
     return {
       schedules,
+      displayComponent,
       style,
     };
   },
@@ -58,11 +78,6 @@ export default defineComponent({
     padding: 20px 50px;
     box-sizing: border-box;
     overflow: hidden;
-  }
-  &-item {
-    & + & {
-      margin-top: 50px;
-    }
   }
 }
 </style>
