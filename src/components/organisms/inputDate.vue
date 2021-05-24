@@ -27,7 +27,10 @@
         </h2>
         <transition name="accordion-item">
           <div v-show="data.isShowWeekdays" class="input-background_date-item">
-            <input-backgroundVue v-model:background="weekdaysBackground" />
+            <input-backgroundVue
+              v-if="isShowBackground"
+              v-model:background="weekdaysBackground"
+            />
             <input-font-data v-model:font="weekdaysFontData" />
           </div>
         </transition>
@@ -40,7 +43,10 @@
         </h2>
         <transition name="accordion-item">
           <div v-show="data.isShowSatureday" class="input-background_date-item">
-            <input-backgroundVue v-model:background="saturdayBackground" />
+            <input-backgroundVue
+              v-if="isShowBackground"
+              v-model:background="saturdayBackground"
+            />
             <input-font-data v-model:font="saturdayFontData" />
           </div>
         </transition>
@@ -53,7 +59,10 @@
         </h2>
         <transition name="accordion-item">
           <div v-show="data.isShowHoliday" class="input-background_date-item">
-            <input-backgroundVue v-model:background="holidayBackground" />
+            <input-backgroundVue
+              v-if="isShowBackground"
+              v-model:background="holidayBackground"
+            />
             <input-font-data v-model:font="holidayFontData" />
           </div>
         </transition>
@@ -188,6 +197,10 @@ export default defineComponent({
         }),
     });
 
+    const isShowBackground = computed(
+      () => store.state.Overall.desigin !== "list_1"
+    );
+
     return {
       data,
       operationAccordion,
@@ -202,6 +215,7 @@ export default defineComponent({
       weekdaysFontData,
       saturdayFontData,
       holidayFontData,
+      isShowBackground,
     };
   },
 });

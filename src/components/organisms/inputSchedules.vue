@@ -19,6 +19,7 @@
             :key="index"
             :index="index"
             :schedule="item"
+            :isShowBackground="isShowBackground"
             class="list-complete-item"
             @updateText="updateText"
             @updateTime="updateTime"
@@ -161,6 +162,12 @@ export default defineComponent({
       return dayOfWeek;
     });
 
+    const isShowBackground = computed(
+      () =>
+        store.state.Overall.desigin !== "list_1" &&
+        store.state.Overall.desigin !== "list_2"
+    );
+
     const style = computed(() => {
       return { "max-height": props.schedules.length * 880 + "px" };
     });
@@ -177,6 +184,7 @@ export default defineComponent({
       deleteSchedule,
       dayOfWeek,
       style,
+      isShowBackground,
     };
   },
 });

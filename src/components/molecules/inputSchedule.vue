@@ -28,6 +28,7 @@
         </ul>
 
         <h3
+          v-if="isShowBackground"
           class="weekly-schedule-h3 -open"
           :class="{ '-hide': !state.isOpenBackground }"
           @click="accordionBackground"
@@ -36,6 +37,7 @@
         </h3>
         <transition name="accordion-item">
           <ul
+            v-if="isShowBackground"
             v-show="state.isOpenBackground"
             class="input-list input-schedule_background"
           >
@@ -129,6 +131,7 @@ import InputTime from "@/components/atoms/InputTime.vue";
 type Props = {
   index: number;
   schedule: Schedule;
+  isShowBackground: boolean;
 };
 
 export default defineComponent({
@@ -140,6 +143,10 @@ export default defineComponent({
     },
     schedule: {
       type: Object as PropType<Schedule>,
+      required: true,
+    },
+    isShowBackground: {
+      type: Boolean,
       required: true,
     },
   },
