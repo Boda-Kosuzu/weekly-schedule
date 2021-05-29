@@ -231,7 +231,7 @@ export default defineComponent({
     }
   }
   &_date-item {
-    max-height: 685px;
+    max-height: 704px;
     overflow: hidden;
   }
 }

@@ -50,6 +50,7 @@ export const mutations: MutationTree<State> & Mutations = {
         color: "#000000",
         font: "arial",
         fontSize: 32,
+        isBold: true,
         border: {
           isShow: false,
           thickness: 5,

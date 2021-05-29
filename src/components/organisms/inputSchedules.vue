@@ -169,7 +169,7 @@ export default defineComponent({
     );
 
     const style = computed(() => {
-      return { "max-height": props.schedules.length * 880 + "px" };
+      return { "max-height": props.schedules.length * 933 + "px" };
     });
 
     return {
@@ -225,7 +225,7 @@ export default defineComponent({
 .list-complete {
   &-item {
     transition: all 0.8s ease;
-    max-height: 880px;
+    max-height: 933px;
     overflow: hidden;
   }
   &-enter-from,
