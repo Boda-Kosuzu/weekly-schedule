@@ -18,6 +18,9 @@
         <input-pixel text="文字サイズ" v-model:pixel="fontSize" />
       </li>
       <li>
+        <input-checkbox text="太字" v-model:checked="isBold" />
+      </li>
+      <li>
         <input-checkbox
           text="縁取りを表示する"
           v-model:checked="borderIsShow"
@@ -89,6 +92,11 @@ export default defineComponent({
       set: (fontSize: number) =>
         context.emit("update:font", { ...props.font, fontSize }),
     });
+    const isBold = computed({
+      get: () => props.font.isBold,
+      set: (isBold: boolean) =>
+        context.emit("update:font", { ...props.font, isBold }),
+    });
     const borderIsShow = computed({
       get: () => props.font.border.isShow,
       set: (isShow: boolean) =>
@@ -120,6 +128,7 @@ export default defineComponent({
       color,
       fontFamily,
       fontSize,
+      isBold,
       borderIsShow,
       borderThickness,
       borderColor,
@@ -130,7 +139,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .input-list {
-  max-height: 373px;
+  max-height: 398px;
   overflow: hidden;
 }
 .accordion-item {

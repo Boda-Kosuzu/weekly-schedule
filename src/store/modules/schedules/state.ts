@@ -23,6 +23,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,
@@ -48,6 +49,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,
@@ -73,6 +75,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,
@@ -98,6 +101,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,
@@ -123,6 +127,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,
@@ -148,6 +153,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,
@@ -173,6 +179,7 @@ export const state: State = {
           color: "#000000",
           font: "arial",
           fontSize: 32,
+          isBold: true,
           border: {
             isShow: false,
             thickness: 5,

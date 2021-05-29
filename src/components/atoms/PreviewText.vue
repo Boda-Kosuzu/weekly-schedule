@@ -4,7 +4,7 @@
     :style="{ height: parseInt(font.fontSize, 10) * 1.1 + 'px' }"
   >
     <svg
-      :width="parseInt(font.fontSize, 10) * text.length"
+      :width="parseInt(font.fontSize, 10) * (text.length + 1)"
       :height="parseInt(font.fontSize, 10) * 1.1"
     >
       <text
@@ -13,9 +13,21 @@
         :y="parseInt(font.fontSize, 10) * 0.92"
         :font-family="font.font"
         :font-size="font.fontSize"
-        :fill="font.color"
+        :font-weight="fontWeight"
         :stroke="stroke"
         :stroke-width="font.border.thickness"
+        stroke-linejoin="round"
+      >
+        {{ text }}
+      </text>
+      <text
+        x="50%"
+        :text-anchor="textAnchor"
+        :y="parseInt(font.fontSize, 10) * 0.92"
+        :font-family="font.font"
+        :font-size="font.fontSize"
+        :font-weight="fontWeight"
+        :fill="font.color"
       >
         {{ text }}
       </text>
@@ -69,11 +81,13 @@ export default defineComponent({
         return "100%";
       } else return "50%";
     });
+    const fontWeight = computed(() => (props.font.isBold ? "bold" : "normal"));
 
     return {
       stroke,
       textAnchor,
       positionX,
+      fontWeight,
     };
   },
 });

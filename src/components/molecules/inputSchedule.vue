@@ -84,6 +84,9 @@
               <input-pixel text="文字サイズ" v-model:pixel="fontSize" />
             </li>
             <li>
+              <input-checkbox text="太字" v-model:checked="isBold" />
+            </li>
+            <li>
               <input-checkbox
                 text="縁取りを表示する"
                 v-model:checked="fontBorderIsShow"
@@ -252,6 +255,11 @@ export default defineComponent({
       set: (fontSize: number) =>
         context.emit("updateFont", { index: props.index, font: { fontSize } }),
     });
+    const isBold = computed({
+      get: () => props.schedule.font.isBold,
+      set: (isBold: boolean) =>
+        context.emit("updateFont", { index: props.index, font: { isBold } }),
+    });
     const fontBorderIsShow = computed({
       get: () => props.schedule.font.border.isShow,
       set: (isShow: boolean) =>
@@ -309,6 +317,7 @@ export default defineComponent({
       fontColor,
       fontFamily,
       fontSize,
+      isBold,
       fontBorderIsShow,
       fontBorderThickness,
       fontBorderColor,
@@ -324,7 +333,7 @@ export default defineComponent({
 }
 .input-schedule {
   &_body {
-    max-height: 1000px;
+    max-height: 877px;
     overflow: hidden;
   }
   &_delete-button {
@@ -337,7 +346,7 @@ export default defineComponent({
     overflow: hidden;
   }
   &_font {
-    max-height: 373px;
+    max-height: 398px;
     overflow: hidden;
   }
 }
