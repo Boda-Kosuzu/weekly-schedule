@@ -1,6 +1,6 @@
 <template>
   <div class="preview-box-schedule">
-    <div class="preview-box-schedule_item">
+    <div class="preview-box-schedule_item --date">
       <preview-simple-list-item
         v-show="isShowDayOfWeek"
         class="preview-box-schedule_item-box"
@@ -137,6 +137,9 @@ export default defineComponent({
     }
     &-box.--time {
       margin-left: 30px;
+    }
+    &.--date {
+      width: 150px;
     }
   }
   & + & {

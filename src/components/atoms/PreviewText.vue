@@ -21,7 +21,7 @@
         {{ text }}
       </text>
       <text
-        x="50%"
+        :x="positionX"
         :text-anchor="textAnchor"
         :y="parseInt(font.fontSize, 10) * 0.92"
         :font-family="font.font"
