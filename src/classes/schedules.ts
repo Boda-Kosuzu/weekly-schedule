@@ -38,6 +38,7 @@ export type Mutations<S = State> = {
   ): void;
   ["addSchedule"](state: S, payload: number): void;
   ["deleteSchedule"](state: S, payload: { date: number; index: number }): void;
+  ["updateSchedules"](state: S, payload: Schedule[][]): void;
 };
 
 export type AugmentedActionContext = {

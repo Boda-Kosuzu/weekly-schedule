@@ -97,7 +97,9 @@ export default defineComponent({
       bubble: previewBubbleItem,
     };
 
-    const isShowDayOfWeek = computed(() => store.state.Date.isShowDayOfWeek);
+    const isShowDayOfWeek = computed(
+      () => store.state.DateInput.isShowDayOfWeek
+    );
     const dayOfWeek = computed(
       () => dayOfWeeks[props.index + store.state.Overall.isStartMonday]
     );
@@ -105,28 +107,28 @@ export default defineComponent({
     const dateBackground = computed(() => {
       const dayOfWeek = props.index + store.state.Overall.isStartMonday;
       if (dayOfWeek === 0 || dayOfWeek === 7) {
-        return store.state.Date.holiday.background;
+        return store.state.DateInput.holiday.background;
       } else if (dayOfWeek === 6) {
-        return store.state.Date.saturday.background;
+        return store.state.DateInput.saturday.background;
       } else {
-        return store.state.Date.weekdays.background;
+        return store.state.DateInput.weekdays.background;
       }
     });
 
     const dateFont = computed(() => {
       const dayOfWeek = props.index + store.state.Overall.isStartMonday;
       if (dayOfWeek === 0 || dayOfWeek === 7) {
-        return store.state.Date.holiday.font;
+        return store.state.DateInput.holiday.font;
       } else if (dayOfWeek === 6) {
-        return store.state.Date.saturday.font;
+        return store.state.DateInput.saturday.font;
       } else {
-        return store.state.Date.weekdays.font;
+        return store.state.DateInput.weekdays.font;
       }
     });
 
     const date = computed(() => {
       const date = new Date();
-      date.setDate(store.state.Date.startDate.getDate() + props.index);
+      date.setDate(store.state.DateInput.startDate.getDate() + props.index);
 
       return `${date.getMonth() + 1}/${date.getDate()}`;
     });

@@ -120,78 +120,78 @@ export default defineComponent({
     });
 
     const isShowDayOfWeek = computed({
-      get: () => store.state.Date.isShowDayOfWeek,
+      get: () => store.state.DateInput.isShowDayOfWeek,
       set: (isShowDayOfWeek: boolean) =>
         store.dispatch("updateIsShowDayOfWeek", isShowDayOfWeek),
     });
 
     const weekdaysBackground = computed({
-      get: () => store.state.Date.weekdays.background,
+      get: () => store.state.DateInput.weekdays.background,
       set: (background: { key: any }) =>
         store.dispatch("updateWeekdays", {
-          ...store.state.Date.weekdays,
+          ...store.state.DateInput.weekdays,
           background: {
-            ...store.state.Date.weekdays.background,
+            ...store.state.DateInput.weekdays.background,
             ...background,
           },
         }),
     });
 
     const saturdayBackground = computed({
-      get: () => store.state.Date.saturday.background,
+      get: () => store.state.DateInput.saturday.background,
       set: (background: { key: any }) =>
         store.dispatch("updateSaturday", {
-          ...store.state.Date.saturday,
+          ...store.state.DateInput.saturday,
           background: {
-            ...store.state.Date.saturday.background,
+            ...store.state.DateInput.saturday.background,
             ...background,
           },
         }),
     });
 
     const holidayBackground = computed({
-      get: () => store.state.Date.holiday.background,
+      get: () => store.state.DateInput.holiday.background,
       set: (background: { key: any }) =>
         store.dispatch("updateHoliday", {
-          ...store.state.Date.holiday,
+          ...store.state.DateInput.holiday,
           background: {
-            ...store.state.Date.holiday.background,
+            ...store.state.DateInput.holiday.background,
             ...background,
           },
         }),
     });
 
     const weekdaysFontData = computed({
-      get: () => store.state.Date.weekdays.font,
+      get: () => store.state.DateInput.weekdays.font,
       set: (font: { key: any }) =>
         store.dispatch("updateWeekdays", {
-          ...store.state.Date.weekdays,
+          ...store.state.DateInput.weekdays,
           font: {
-            ...store.state.Date.weekdays.font,
+            ...store.state.DateInput.weekdays.font,
             ...font,
           },
         }),
     });
 
     const saturdayFontData = computed({
-      get: () => store.state.Date.saturday.font,
+      get: () => store.state.DateInput.saturday.font,
       set: (font: { key: any }) =>
         store.dispatch("updateSaturday", {
-          ...store.state.Date.saturday,
+          ...store.state.DateInput.saturday,
           font: {
-            ...store.state.Date.saturday.font,
+            ...store.state.DateInput.saturday.font,
             ...font,
           },
         }),
     });
 
     const holidayFontData = computed({
-      get: () => store.state.Date.holiday.font,
+      get: () => store.state.DateInput.holiday.font,
       set: (font: { key: any }) =>
         store.dispatch("updateHoliday", {
-          ...store.state.Date.holiday,
+          ...store.state.DateInput.holiday,
           font: {
-            ...store.state.Date.holiday.font,
+            ...store.state.DateInput.holiday.font,
             ...font,
           },
         }),
