@@ -11,13 +11,24 @@
       />
     </div>
     <div class="input-button-area">
+      <div class="input-button-area-upper">
+        <button class="input-button-area-save" @click="save">書き出し</button>
+        <button class="input-button-area-load" @click="load">読み込み</button>
+        <input
+          type="file"
+          id="input-file"
+          style="display: none"
+          accept="application/json"
+          @change="uploadFile"
+        />
+      </div>
       <button class="input-button-area-output" @click="output">出力</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, render } from "vue";
 import { useStore } from "vuex";
 import Overall from "../organisms/inputOverall.vue";
 import InputDate from "../organisms/inputDate.vue";
@@ -47,9 +58,22 @@ export default defineComponent({
       });
     };
 
+    const save = () => store.dispatch("saveSetting");
+    const load = () => document.getElementById("input-file")?.click();
+    const uploadFile = (e: any) => {
+      const reader = new FileReader();
+      reader.readAsText(e.target.files[0]);
+      reader.onload = (e: any) => {
+        store.dispatch("loadSetting", JSON.parse(e.target.result));
+      };
+    };
+
     return {
       schedules,
       output,
+      save,
+      load,
+      uploadFile,
     };
   },
 });
@@ -59,7 +83,7 @@ export default defineComponent({
 .input {
   &-date-area {
     width: 100%;
-    height: 90%;
+    height: calc(100% - 170px);
     border-bottom: 2px solid $color-gray;
     padding: 50px 25px;
     box-sizing: border-box;
@@ -67,12 +91,11 @@ export default defineComponent({
   }
   &-button-area {
     width: 100%;
-    height: 10%;
+    height: 170px;
     box-sizing: border-box;
     padding: 25px;
     &-output {
       width: 100%;
-      height: 100%;
       background: $color-blue;
       border: none;
       border-radius: 10px;
@@ -84,6 +107,28 @@ export default defineComponent({
       }
       &:active {
         background: $color-gray;
+        opacity: 0.5;
+      }
+    }
+    &-upper {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &-save,
+    &-load {
+      width: 45%;
+      border: 3px solid $color-black;
+      background: $color-white;
+      border-radius: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+      color: $color-black;
+      font-size: 2rem;
+      &:hover {
+        opacity: 0.5;
+      }
+      &:active {
         opacity: 0.5;
       }
     }

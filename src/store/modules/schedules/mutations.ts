@@ -63,4 +63,7 @@ export const mutations: MutationTree<State> & Mutations = {
     if (state.schedules[date].length < 2) return;
     state.schedules[date].splice(index, 1);
   },
+  updateSchedules(state, payload) {
+    state.schedules = payload;
+  },
 };
