@@ -17,21 +17,21 @@
         :font="dateFont"
       />
     </div>
-    <div class="preview-box-schedule_item">
+    <div class="preview-box-schedule_schedules">
       <div
         v-for="(item, index) in schedules"
         :key="index"
-        class="preview-box-schedule_schedule-item --flex"
+        class="preview-box-schedule_schedule"
       >
         <preview-simple-list-item
-          class="preview-box-schedule_item-box"
+          class="preview-box-schedule_schedule-text"
           :text="item.text"
           :background="item.background"
           :font="item.font"
         />
         <preview-simple-list-item
           v-show="item.isShowTime"
-          class="preview-box-schedule_item-box --time"
+          class="preview-box-schedule_schedule-time"
           :text="`${item.time
             .getHours()
             .toString()
@@ -159,6 +159,26 @@ export default defineComponent({
   }
   &_background-gray {
     background: $color-right-gray-transparent;
+  }
+  &_schedules {
+    width: 100%;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &_schedule {
+    display: flex;
+    justify-content: space-between;
+    &-text {
+      width: 80%;
+    }
+    &-time {
+      width: 20%;
+    }
+    & + & {
+      margin-top: 10px;
+    }
   }
 }
 </style>

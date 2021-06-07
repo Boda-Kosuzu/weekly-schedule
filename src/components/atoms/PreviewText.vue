@@ -3,10 +3,7 @@
     :class="{ 'display-middle': display === 'middle' }"
     :style="{ height: parseInt(font.fontSize, 10) * 1.1 + 'px' }"
   >
-    <svg
-      :width="parseInt(font.fontSize, 10) * (text.length + 1)"
-      :height="parseInt(font.fontSize, 10) * 1.1"
-    >
+    <svg :viewBox="viewBox" :height="parseInt(font.fontSize, 10) + 2">
       <text
         :x="positionX"
         :text-anchor="textAnchor"
@@ -76,18 +73,25 @@ export default defineComponent({
 
     const positionX = computed(() => {
       if (props.display === "left") {
-        return "0";
+        return "5";
       } else if (props.display === "right") {
         return "100%";
       } else return "50%";
     });
     const fontWeight = computed(() => (props.font.isBold ? "bold" : "normal"));
 
+    const viewBox = computed(() => {
+      return `0 0 ${props.font.fontSize * props.text.length + 10} ${
+        props.font.fontSize * 1 + 5
+      }`;
+    });
+
     return {
       stroke,
       textAnchor,
       positionX,
       fontWeight,
+      viewBox,
     };
   },
 });

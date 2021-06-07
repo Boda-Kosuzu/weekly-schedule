@@ -15,21 +15,21 @@
         :font="dateFont"
       />
     </div>
-    <div class="preview-box-schedule_item">
+    <div class="preview-box-schedule_schedules">
       <div
         v-for="(item, index) in schedules"
         :key="index"
-        class="preview-box-schedule_schedule-item --flex"
+        class="preview-box-schedule_schedule-item"
       >
         <preview-simple-list-item
-          class="preview-box-schedule_item-box"
+          class="preview-box-schedule_schedule-title"
           :text="item.text"
           :background="item.background"
           :font="item.font"
         />
         <preview-simple-list-item
           v-show="item.isShowTime"
-          class="preview-box-schedule_item-box --time"
+          class="preview-box-schedule_start-time"
           :text="`${item.time
             .getHours()
             .toString()
@@ -121,10 +121,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.--flex {
-  display: flex;
-  justify-content: flex-start;
-}
 .preview-box-schedule {
   padding: 0 10px;
   display: flex;
@@ -135,17 +131,35 @@ export default defineComponent({
     & > * + * {
       margin-top: 10px;
     }
-    &-box.--time {
-      margin-left: 30px;
-    }
     &.--date {
-      width: 150px;
+      min-width: 140px;
     }
   }
   & + & {
     margin-top: 15px;
-    border-top: 3px solid #505050;
+    border-top: 3px solid $color-border;
     padding-top: 15px;
+  }
+  &_schedules {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 140px);
+  }
+  &_schedule-item {
+    display: flex;
+    justify-content: space-between;
+    & + & {
+      margin-top: 5px;
+      border-top: 1px solid $color-border;
+      padding-top: 8px;
+    }
+  }
+  &_schedule-title {
+    width: 80%;
+  }
+  &_start-time {
+    width: 20%;
   }
 }
 </style>
