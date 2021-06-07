@@ -76,7 +76,5 @@ export default defineComponent({
     align-items: center;
     justify-content: center;
   }
-  &.--dayOfWeek {
-  }
 }
 </style>
