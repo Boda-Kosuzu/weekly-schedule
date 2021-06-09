@@ -36,6 +36,7 @@ export default defineComponent({
       bubble: previewSchedule,
       list_1: previewSimpleListSchedule,
       list_2: previewListSchedule,
+      neumorphism: previewSchedule,
     };
     const store = useStore();
 

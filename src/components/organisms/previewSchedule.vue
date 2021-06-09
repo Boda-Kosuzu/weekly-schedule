@@ -8,6 +8,7 @@
         :text="dayOfWeek"
         :background="dateBackground"
         :font="dateFont"
+        :class="desigin"
       />
       <component
         class="preview-box-schedule_item-box --day-of-week"
@@ -15,12 +16,14 @@
         :text="date"
         :background="dateBackground"
         :font="dateFont"
+        :class="desigin"
       />
     </div>
     <div class="preveiw-box-schedule_item --schedule">
       <div
         v-for="(item, index) in schedules"
         :key="index"
+        :class="desigin"
         class="preveiw-box-schedule_schedule-item"
       >
         <component
@@ -55,6 +58,7 @@ import { useStore } from "vuex";
 import { Schedule } from "@/classes/schedules";
 import previewBoxItem from "@/components/molecules/previewBoxItem.vue";
 import previewBubbleItem from "@/components/molecules/previewBubbleItem.vue";
+import neumorphism from "@/components/molecules/previewNeumorphismItem.vue";
 
 interface Props {
   index: number;
@@ -95,6 +99,7 @@ export default defineComponent({
     const componentsList: ComponentsList = {
       box: previewBoxItem,
       bubble: previewBubbleItem,
+      neumorphism: neumorphism,
     };
 
     const isShowDayOfWeek = computed(
@@ -137,6 +142,8 @@ export default defineComponent({
       return componentsList[store.state.Overall.desigin];
     });
 
+    const desigin = computed(() => store.state.Overall.desigin);
+
     return {
       isShowDayOfWeek,
       dayOfWeek,
@@ -144,6 +151,7 @@ export default defineComponent({
       dateFont,
       date,
       displayComponent,
+      desigin,
     };
   },
 });
@@ -182,6 +190,11 @@ export default defineComponent({
   }
   & + & {
     margin-top: 50px;
+  }
+}
+.neumorphism {
+  & + & {
+    margin-top: 30px !important;
   }
 }
 </style>

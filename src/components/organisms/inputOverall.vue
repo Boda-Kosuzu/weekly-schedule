@@ -57,6 +57,7 @@ export default defineComponent({
       bubble: "バブル",
       list_1: "リスト１",
       list_2: "リスト２",
+      neumorphism: "ニューモーフィズム",
     });
 
     const desigin = computed({
