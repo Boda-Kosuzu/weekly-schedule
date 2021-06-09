@@ -1,7 +1,7 @@
 import { ActionContext } from "vuex";
 import { RootState } from "./root";
 
-type Desigin = "box" | "bubble" | "hex" | "list_1" | "list_2";
+type Desigin = "box" | "bubble" | "hex" | "list_1" | "list_2" | "neumorphism";
 
 export interface OverallBackground {
   color: string;
