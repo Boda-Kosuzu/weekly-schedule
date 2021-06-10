@@ -198,7 +198,9 @@ export default defineComponent({
     });
 
     const isShowBackground = computed(
-      () => store.state.Overall.desigin !== "list_1"
+      () =>
+        store.state.Overall.desigin !== "list_1" &&
+        store.state.Overall.desigin !== "neumorphism"
     );
 
     return {
